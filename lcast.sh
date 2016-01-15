@@ -5,7 +5,6 @@ CASTSTATUS=$(avahi-browse -rt _googlecast._tcp | grep txt | cut -d'"' -f 6 | cut
 LFXS=$(cat /tmp/lifxstat | cut -d'|' -f 1);
 BULB0='all';
 
-
 echo "$CASTSTATUS"  >> ~/.caststatus;
 
 CHANGE=$(tail -n 2 ~/.caststatus | tr '\n' ' ' | sed 's/ //')
@@ -32,7 +31,6 @@ lifxst && lcastoff
 elif [ $CHANGE = "10" ];
 then 
 lcaston
-
 else 
 echo "DOING NOTHING";
 fi
